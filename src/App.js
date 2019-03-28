@@ -8,7 +8,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: []
+            todos: [],
+            show: []
         }
     }
     addTodo(todo) {
@@ -17,7 +18,8 @@ class App extends React.Component {
             todo.id = id;
             let todos = [...this.state.todos, todo];
             this.setState({
-                todos
+                todos,
+                show: todos
             })
         }
         setTimeout(() => { console.log(this.state.todos) }, 1000)
@@ -27,7 +29,8 @@ class App extends React.Component {
             return todo.id !== parseInt(e.currentTarget.getAttribute("data-id"))
         })
         this.setState({
-            todos
+            todos,
+            show: todos
         })
     }
     completeHandler(e) {
@@ -39,18 +42,40 @@ class App extends React.Component {
         })
         document.querySelectorAll(".todoContent")[index].classList.toggle("completed")
     }
+    all() {
+        this.setState({
+            show: this.state.todos
+        })
+    }
+    active() {
+        const show = this.state.todos.filter(todo => {
+            return todo.completed === false
+        })
+        this.setState({
+            show
+        })
+    }
+    completed() {
+        const show = this.state.todos.filter(todo => {
+            return todo.completed === true
+        })
+        this.setState({
+            show
+        })
+    }
     allDone() {
         this.setState({
-            todos: []
+            todos: [],
+            show:[]
         })
     }
     render() {
-        const todos = this.state.todos;
+        const todos = this.state.show;
         const todoList = todos.map((todo, index) => {
             return <div className="todoItem" key={todo.id}>
                 <input className="checkbox" type="checkbox" checked={todo.completed} onChange={this.completeHandler.bind(this)} data-index={index} />
                 <div className="todoContent">{todo.content}</div>
-                <div data-id={todo.id} onClick={this.deleteTodo.bind(this)} style={{ color: "#fff",cursor: "pointer",margin: "auto 10px auto 0" }}>X</div>
+                <div data-id={todo.id} onClick={this.deleteTodo.bind(this)} style={{ color: "#fff", cursor: "pointer", margin: "auto 10px auto 0" }}>X</div>
             </div>
         })
         return <div className="container">
@@ -58,9 +83,9 @@ class App extends React.Component {
             <AddTodo addTodo={this.addTodo.bind(this)} />
             <div className="mainContainer">
                 <div className="buttonContainer">
-                    <button className="btn allBtn">All</button>
-                    <button className="btn activeBtn">Active</button>
-                    <button className="btn completedBtn">Completed</button>
+                    <button className="btn allBtn" onClick={this.all.bind(this)}>All</button>
+                    <button className="btn activeBtn" onClick={this.active.bind(this)}>Active</button>
+                    <button className="btn completedBtn" onClick={this.completed.bind(this)}>Completed</button>
                     <button className="btn allDoneBtn" onClick={this.allDone.bind(this)}>All Done</button>
                 </div>
                 <div className="toDoList">{todoList}</div>
