@@ -1,0 +1,52 @@
+html, body {
+    background: #333;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+.addBtn {
+    background-color: rgb(104, 119, 184);
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: rgb(2, 1, 5)
+}
+.AddTodo {
+    display: flex;
+}
+.new {
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+}
+.completed {
+    text-decoration:line-through;
+    text-decoration-color: grey;
+    color: rgb(102, 98, 98) !important;
+}
+.todoItem {
+    text-align: center;
+    margin-top: 10px;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+}
+.todoContent {
+    color: #fff;
+    flex-grow: 1;
+    text-align: left;
+    font-size: 18px;
+}
+.checkbox {
+    margin-right: 10px;
+}
+.toDoList {
+    margin-top: 20px;
+}
