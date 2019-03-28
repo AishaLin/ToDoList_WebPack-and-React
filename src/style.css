@@ -30,13 +30,17 @@ html, body {
     background-color: rgb(199, 201, 89);
 }
 .allBtn {
-    background-color: rgb(176, 216, 175);
+    background-color: rgb(175, 219, 174);
 }
 .activeBtn {
-    background-color: rgb(169, 181, 238);
+    background-color: rgb(182, 192, 240);
     margin-left: 10px;
 }
 .completedBtn {
+    background-color: rgb(226, 165, 150);
+    margin-left: 10px;
+}
+.allDoneBtn {
     background-color: rgb(199, 201, 89);
     margin-left: 10px;
 }

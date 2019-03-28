@@ -39,6 +39,11 @@ class App extends React.Component {
         })
         document.querySelectorAll(".todoContent")[index].classList.toggle("completed")
     }
+    allDone() {
+        this.setState({
+            todos: []
+        })
+    }
     render() {
         const todos = this.state.todos;
         const todoList = todos.map((todo, index) => {
@@ -56,6 +61,7 @@ class App extends React.Component {
                     <button className="btn allBtn">All</button>
                     <button className="btn activeBtn">Active</button>
                     <button className="btn completedBtn">Completed</button>
+                    <button className="btn allDoneBtn" onClick={this.allDone.bind(this)}>All Done</button>
                 </div>
                 <div className="toDoList">{todoList}</div>
             </div>
