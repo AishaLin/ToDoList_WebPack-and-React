@@ -6,15 +6,39 @@ html, body {
 }
 .container {
     width: 60%;
+    max-width: 400px;
     margin: 0 auto;
     text-align: center;
 }
-.addBtn {
-    background-color: rgb(199, 201, 89);
+.mainContainer {
+    background-color: rgb(218, 214, 214);
+    padding: 10px 0;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.btn {
     font-size: 18px;
     border: none;
     outline: none;
-    color: rgb(2, 1, 5)
+    color: rgb(2, 1, 5);
+    cursor: pointer;
+}
+.addBtn {
+    background-color: rgb(199, 201, 89);
+}
+.allBtn {
+    background-color: rgb(176, 216, 175);
+}
+.activeBtn {
+    background-color: rgb(169, 181, 238);
+    margin-left: 10px;
+}
+.completedBtn {
+    background-color: rgb(199, 201, 89);
+    margin-left: 10px;
 }
 .AddTodo {
     display: flex;
@@ -23,29 +47,36 @@ html, body {
     flex-grow: 1;
     outline: none;
     border: none;
+    line-height: 18px;
     font-size: 18px;
     padding: 8px;
 }
 .completed {
     text-decoration:line-through;
-    text-decoration-color: grey;
-    color: rgb(102, 98, 98) !important;
+    text-decoration-color: #fff;
+    color: #fff !important;
 }
 .todoItem {
     text-align: center;
+    height: 40px;
     margin-top: 10px;
-    width: 98%;
     display: flex;
+    padding: 0 5px;
     justify-content: space-between;
 }
+.todoItem:hover {
+    background-color: rgb(176, 176, 179);
+}
 .todoContent {
-    color: #fff;
+    color: rgb(102, 98, 98);
     flex-grow: 1;
     text-align: left;
     font-size: 18px;
+    line-height: 40px;
 }
 .checkbox {
-    margin-right: 10px;
+    cursor: pointer;
+    margin: auto 10px auto 0;  
 }
 .toDoList {
     margin-top: 20px;

@@ -45,13 +45,20 @@ class App extends React.Component {
             return <div className="todoItem" key={todo.id}>
                 <input className="checkbox" type="checkbox" checked={todo.completed} onChange={this.completeHandler.bind(this)} data-index={index} />
                 <div className="todoContent">{todo.content}</div>
-                <span data-id={todo.id} onClick={this.deleteTodo.bind(this)} style={{color:"#fff"}}>x</span>
+                <div data-id={todo.id} onClick={this.deleteTodo.bind(this)} style={{ color: "#fff",cursor: "pointer",margin: "auto 10px auto 0" }}>X</div>
             </div>
         })
         return <div className="container">
             <h1 style={{ color: "white" }}>To Do List</h1>
             <AddTodo addTodo={this.addTodo.bind(this)} />
-            <div className="toDoList">{todoList}</div>
+            <div className="mainContainer">
+                <div className="buttonContainer">
+                    <button className="btn allBtn">All</button>
+                    <button className="btn activeBtn">Active</button>
+                    <button className="btn completedBtn">Completed</button>
+                </div>
+                <div className="toDoList">{todoList}</div>
+            </div>
         </div>
     }
 }

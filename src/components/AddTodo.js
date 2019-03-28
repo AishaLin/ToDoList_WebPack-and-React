@@ -17,7 +17,7 @@ class AddTodo extends React.Component {
     render() {
         return <div className="AddTodo" onKeyUp={this.handleKeyPress.bind(this)}>
             <input className="new" tyle="text"/>
-            <button onClick={this.handleSubmit.bind(this)} className="addBtn">Add</button>
+            <button onClick={this.handleSubmit.bind(this)} className="btn addBtn">Add</button>
         </div>
     }
 }
